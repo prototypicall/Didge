@@ -29,7 +29,7 @@ library. Note that this is one of the *header only* libraries so you don't need 
 compile or install the Boost library. You just need to add its location as an include path in the Makefile.
 
 I have a modified implementation which has exception throwing code removed for 
-saving around 1kB of binary size. Modified version can be found [here]. 
+saving around 1kB of binary size. Modified version can be found [here](https://github.com/prototypicall/Didge/tree/master/firmware/ext). 
 It can be copied over the same location as the original file.
 
 * [Kvasir](http://kvasir.io/) Library: For configuring the registers of the microcontroller
@@ -39,7 +39,7 @@ from vendor supplied [CMSIS-SVD](https://arm-software.github.io/CMSIS_5/SVD/html
 This allows to write more readable register access code and leaves the bug prone bit-manipulation 
 part to the compiler. Unfortunately the project is not active and lacks a good documentation.
 > ST Micro provides a GUI code generator [STM32CubeMx](https://www.st.com/en/development-tools/stm32cubemx.html)
-which can generate a complete project (some IDEs and also makefile). It can be very useful 
+which can generate a complete project (for some IDEs and makefile project). It can be very useful 
 for evaluation and basic use cases. The abstraction layer has noticeable overhead, though. 
 For example, an empty project (setting up clock and setting hardware registers to their 
 initial values) would compile to a 6 KB binary where as prototype version of this firmware with all
