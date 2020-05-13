@@ -8,6 +8,7 @@ connect to various devices.
 <img width=600 src=https://solovjov.net/reblag.dk/The-Generic-STM32F103-Pinout-Diagram.jpg />
 
 **TODO** Add pinout/connection table.
+
 [Reference manual](https://www.st.com/resource/en/reference_manual/cd00171190.pdf) for 
 figuring out how all the peripherals are to be configured.
 
