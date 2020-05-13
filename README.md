@@ -21,7 +21,7 @@ it also breaks the link between the shafts. So, it does not allow power transfer
 from the input shaft to the output shaft. This rules out some applications.*
 
 **Didge** is a digital gearbox, implemented on a low cost 32 bit microcontroller
-board (called the STM32 "Blue pill"). Generates low latency (<80 nanosecond)
+board (called the STM32 "Blue pill"). Generates low latency (<80 nanoseconds)
 smooth motion regardless of gear ratio. No floating point operations and scaling error. 
 You can read about [how it works here](https://github.com/prototypicall/Didge/blob/master/doc/How.md)
 
@@ -69,8 +69,8 @@ Test setup is composed of a small NEMA 17 size stepper motor driven by a
 combination is used in many hobby grade 3D printers to control the print head
 and the platform) and a 2400 pulse/rev rotary encoder.
 
-Below is a video with brief description and footage of the setup driving the 
-stepper, close to its limits, at 1200+ RPM with a 1 to 1 rotational ratio.
+Below is a video with brief description of the test setup and some footage of 
+operation, driving the stepper, close to its limits, at 1200+ RPM.
 
 [![Video](https://img.youtube.com/vi/SvH-SeT9NUI/0.jpg)](https://www.youtube.com/watch?v=SvH-SeT9NUI)
 
