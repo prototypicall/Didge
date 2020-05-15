@@ -30,7 +30,7 @@ drives the lead screw but can be adapted for other uses where a dynamically
 configurable gear reduction is needed, e.g. for synchronized motion applications.
 A [MPG](https://en.wikipedia.org/wiki/Manual_pulse_generator) device is a good example.
 
-You can see the source code in the firmware folder.
+You can see the source code in the [firmware](https://github.com/prototypicall/Didge/tree/master/firmware) folder.
 
 ## Status
 The main gearbox emulation, including smooth step generation and support for
