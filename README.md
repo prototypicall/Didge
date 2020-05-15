@@ -1,10 +1,7 @@
-# Didge - Digital Gearbox
-
+# Didge - A Digital Gearbox
+## What is a digital gearbox?
 A *digital gearbox* is an electronic device which emulates a gearbox but with
-dynamically adjustable gear ratio. It is a setup in which an sensor is coupled
-to an input shaft and a motor is coupled to an output shaft. The sensor and
-motor driver are connected to the *device* to track the input shaft and drive the
-motor such that the gear ratio is held. For example, if it the ratio is set to 1/3,
+dynamically adjustable gear ratios. For example, if it the ratio is set to 1/3,
 the output shaft should rotate 1/3 rotations for every rotation of the input shaft.
 
 Basically it aims to replace some type of this:
@@ -15,20 +12,19 @@ with something like this (input shaft, sensor and digital gearbox not shown):
 
 <img width=300 src=https://www.photomacrography.net/forum/userpix/679_CU_of_Stepper_timing_belts_and_pulleys_1.jpg />
 
-*Unlike a physical gearbox with actual gears, a digital gearbox has no practical 
-limit on how many gear ratios it can be configured to. No gears to wear down. But
-it also breaks the link between the shafts. So, it does not allow power transfer
-from the input shaft to the output shaft. This rules out some applications.*
+## Why
+Unlike a physical gearbox with actual gears, a digital gearbox has no practical 
+limit on how many gear ratios it can be configured to. No gears to wear down or break. 
 
-**Didge** is a digital gearbox, implemented on a low cost 32 bit microcontroller
-board (called the STM32 "Blue pill"). Generates low latency (<80 nanoseconds)
-smooth motion regardless of gear ratio. No floating point operations and scaling error. 
+**Didge** digital gearbox is implemented on a low cost 32 bit microcontroller
+board. Thanks to the clever use of an algorithm combined with utilization of the
+hardware resource in the microcontroller, it can emulates a real gearbox with very low
+latency (<80 nanoseconds) and is able to generate a smooth motion output regardless of 
+the selected gear ratio. No floating point representation or scaling errors. 
 You can read about [how it works here](https://github.com/prototypicall/Didge/blob/master/doc/How.md)
 
-It is implemented with the intent to replace the physical gearbox in a lathe that 
-drives the lead screw but can be adapted for other uses where a dynamically 
-configurable gear reduction is needed, e.g. for synchronized motion applications.
-A [MPG](https://en.wikipedia.org/wiki/Manual_pulse_generator) device is a good example.
+It is implemented with the intent to replace the physical gearbox in a metal cutting [lathe](https://en.wikipedia.org/wiki/Lathe) but can be adapted for other uses where a dynamically configurable gear reduction is needed, e.g. for synchronized 
+motion applications.
 
 You can see the source code in the [firmware](https://github.com/prototypicall/Didge/tree/master/firmware) folder.
 
@@ -42,32 +38,28 @@ combination is used in many hobby grade 3D printers to control the print head
 and the platform) and a 2400 pulse/rev rotary encoder.
 
 Below is a video with brief description of the test setup and some footage of 
-operation, driving the stepper, close to its limits, at 1200+ RPM.
+operation, driving the stepper motor close to its limits at 1200+ RPM.
 
 [![Video](https://img.youtube.com/vi/SvH-SeT9NUI/0.jpg)](https://www.youtube.com/watch?v=SvH-SeT9NUI)
-
-Basic user interface is there. Graphic display shows the RPM, selected pitch and 
-allows selecting among a sample set of pitches (metric and imperial) on the fly.
-Start/stop, direction change and feed mode are to be implemented next.
 
 Main screen:
 
 ![image](https://user-images.githubusercontent.com/61201064/81103576-167a3d00-8ec6-11ea-9a63-47692b28831e.png)
 
-Thread selection (list is incomplete):
+Thread selection screen:
 
 ![image](https://user-images.githubusercontent.com/61201064/81103740-550ff780-8ec6-11ea-89ad-c3a49410a3ab.png)
 
-Settings (firmware part to be implemented)
+Settings screen:
 
 ![image](https://user-images.githubusercontent.com/61201064/81104130-e8e1c380-8ec6-11ea-884f-5c273bb3ed99.png)
 
 
 ## Planned Features
 
-* *Graphical user interface combined with physical buttons:* See all the relevant
+- *Graphical user interface combined with physical buttons:* See all the relevant
     info on the screen and operate with the touch screen or with buttons.
-* *Reconfigurable:* All the settings needed to use on a specific machine and motor
+- *Reconfigurable:* All the settings needed to use on a specific machine and motor
     configuration are adjustable during operation without needing source code changes.
     Some of these settings are:
     * Encoder pulse count (per revolution) and gearing (to the spindle)
@@ -78,6 +70,7 @@ Settings (firmware part to be implemented)
         stepper/servo driver)
     * Acceleration, deceleration and maximum speed for the stepper
     * Polarities for step and direction signals
+- *User defined threads*
 - *Travel control:* Starting and stopping the lead screw to control thread length
     or turn down to a shoulder, in synchronization with the input (i.e the spindle) 
     or stalling the stepper/servo motor.
