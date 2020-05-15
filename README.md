@@ -30,34 +30,6 @@ drives the lead screw but can be adapted for other uses where a dynamically
 configurable gear reduction is needed, e.g. for synchronized motion applications.
 A [MPG](https://en.wikipedia.org/wiki/Manual_pulse_generator) device is a good example.
 
-## Features
-Below are some of the planned features:
-
-* *Graphical user interface combined with physical buttons:* See all the relevant
-    info on the screen and operate with the touch screen or with buttons.
-* *Reconfigurable:* All the settings needed to use on a specific machine and motor
-    configuration are adjustable during operation without needing source code changes.
-    Some of these settings are:
-    * Encoder pulse count (per revolution) and gearing (to the spindle)
-    * Encoder signal filtering
-    * Lead screw pitch (metric or imperial)
-    * Steps per revolution, micro steps and gearing to the lead screw.
-    * Step pulse length and direction hold time (maybe different for each 
-        stepper/servo driver)
-    * Acceleration, deceleration and maximum speed for the stepper
-    * Polarities for step and direction signals
-- *Travel control:* Starting and stopping the lead screw to control thread length
-    or turn down to a shoulder, in synchronization with the input (i.e the spindle) 
-    or stalling the stepper/servo motor.
-- *Jogging:* Move the carriage for precise positioning.
-- *Safety:* 
-    * Keep the motor in valid speed range, disengage if exceeded. 
-    * E-STOP. Input and output to integrate with the rest of the system
-    * Motor position tracking.
-- *Dual motor drive:* Ability use a second motor, attached to a pinion rack mechanism
-    for example, to be used for feed mode.
-- *Multi-start thread support*
-
 You can see the source code in the firmware folder.
 
 ## Status
@@ -91,19 +63,29 @@ Settings (firmware part to be implemented)
 ![image](https://user-images.githubusercontent.com/61201064/81104130-e8e1c380-8ec6-11ea-884f-5c273bb3ed99.png)
 
 
-## TODO
-Add feed mode which basically provides very high reductions and an increment, 
-decrement interface to control.
+## Planned Features
 
-Add controlled start, stop, pause, resume and direction changes (with acceleration)
-
-Settings/configuration interface. Non-volatile storage (using internal 
-flash memory or an external EEPROM or SD card).
-
-Implement travel control.
-
-Graphical user interface and button/keypad final design. Enclosure selection.
-
-Multi start thread support.
-
-Remaining features.
+* *Graphical user interface combined with physical buttons:* See all the relevant
+    info on the screen and operate with the touch screen or with buttons.
+* *Reconfigurable:* All the settings needed to use on a specific machine and motor
+    configuration are adjustable during operation without needing source code changes.
+    Some of these settings are:
+    * Encoder pulse count (per revolution) and gearing (to the spindle)
+    * Encoder signal filtering
+    * Lead screw pitch (metric or imperial)
+    * Steps per revolution, micro steps and gearing to the lead screw.
+    * Step pulse length and direction hold time (maybe different for each 
+        stepper/servo driver)
+    * Acceleration, deceleration and maximum speed for the stepper
+    * Polarities for step and direction signals
+- *Travel control:* Starting and stopping the lead screw to control thread length
+    or turn down to a shoulder, in synchronization with the input (i.e the spindle) 
+    or stalling the stepper/servo motor.
+- *Jogging:* Move the carriage for precise positioning.
+- *Safety:* 
+    * Keep the motor in valid speed range, disengage if exceeded. 
+    * E-STOP. Input and output to integrate with the rest of the system
+    * Motor position tracking.
+- *Dual motor drive:* Ability use a second motor, attached to a pinion rack mechanism
+    for example, to be used for feed mode.
+- *Multi-start thread support*
