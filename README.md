@@ -72,8 +72,7 @@ Settings screen:
     * Polarities for step and direction signals
 - *User defined threads*
 - *Travel control:* Starting and stopping the lead screw to control thread length
-    or turn down to a shoulder, in synchronization with the input (i.e the spindle) 
-    or stalling the stepper/servo motor.
+    or turn down to a shoulder, in synchronization with the input (i.e the spindle).
 - *Jogging:* Move the carriage for precise positioning.
 - *Safety:* 
     * Keep the motor in valid speed range, disengage if exceeded. 
