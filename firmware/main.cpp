@@ -60,19 +60,19 @@ extern "C" { // interrupt handlers
 
   void TIM1_CC_IRQHandler() {
     using namespace devices;
-    encoder::clear_cc_interrupt();
     auto enc = encoder::get_count();
     bool dir = step_gen::get_direction();
+    const bool fwd = encoder::is_cc_fwd_interrupt();
+    encoder::clear_cc_interrupt();
     using namespace gear;
-    if (enc == range.next.count) {
+    if (fwd) {
       encoder::trigger_clear();
       state.err = range.next.error;
       range.next_jump(dir, enc);
       step_gen::set_delay(phase_delay(encoder_pulse_duration::last_duration(), range.next.error));
       encoder::trigger_restore();
     }
-    else {
-      // Change direction, setup delayed pulse and do manual trigger
+    else { // Change direction, setup delayed pulse and do manual trigger     
       dir = !dir;
       step_gen::change_direction(dir);
       encoder::trigger_manual_pulse();

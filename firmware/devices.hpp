@@ -168,6 +168,11 @@ namespace devices {
       mcu::enable_interrupt<IRQ::tim1_cc_irqn>();
     }
     
+    static inline bool is_cc_fwd_interrupt() {
+      using namespace Kvasir;
+      return apply(read(Tim1Sr::cc3if));
+    }
+    
     static inline void clear_cc_interrupt() {
       using namespace Kvasir;
       apply(clear(Tim1Sr::cc3if),
