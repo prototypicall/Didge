@@ -52,7 +52,7 @@ namespace devices {
     
     static void configure(unsigned int dir_setup_ns, unsigned int step_pulse_ns,
                           bool invert_step, bool invert_dir) {
-      apply(write(Kvasir::Tim4Ccer::cc3p, invert_step));
+      apply(write(Kvasir::Tim3Ccer::cc3p, invert_step));
       state.direction_polarity = invert_dir;
       apply(write(dir_pin::odr, state.direction ^ state.direction_polarity));
 
