@@ -52,7 +52,7 @@ namespace devices {
     
     static void configure(unsigned int dir_setup_ns, unsigned int step_pulse_ns,
                           bool invert_step, bool invert_dir) {
-      apply(write(Kvasir::Tim4Ccer::cc3p, invert_step));
+      apply(write(Kvasir::Tim3Ccer::cc3p, invert_step));
       state.direction_polarity = invert_dir;
       apply(write(dir_pin::odr, state.direction ^ state.direction_polarity));
 
@@ -166,6 +166,11 @@ namespace devices {
       apply(set(Tim1Dier::cc3ie), set(Tim1Dier::cc4ie));
       clear_cc_interrupt();
       mcu::enable_interrupt<IRQ::tim1_cc_irqn>();
+    }
+    
+    static inline bool is_cc_fwd_interrupt() {
+      using namespace Kvasir;
+      return apply(read(Tim1Sr::cc3if));
     }
     
     static inline void clear_cc_interrupt() {
