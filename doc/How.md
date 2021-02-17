@@ -329,7 +329,7 @@ by dividing that with the pulse ratio.
 
 Writing the error time in terms of encoder time, the **D** will cancel out and we get:
 
-> T<sub>error</sub> = T<sub>enc</sub> / N
+> T<sub>error</sub> = T<sub>enc</sub> * Error / N
 
 ### Phase shift
 Now we just need to measure the time between encoder events, and we can use that
